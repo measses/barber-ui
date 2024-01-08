@@ -32,7 +32,14 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/admin/js/jquery/jquery.min.js",
+              "src/assets/admin/js/metismenu/metisMenu.min.js",
+              "src/assets/admin/js/simplebar/simplebar.min.js",
+              "src/assets/admin/js/node-waves/waves.min.js",
+              "src/assets/admin/js/jquery.counterup/jquery.counterup.min.js",
+              "src/assets/admin/js/app.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
