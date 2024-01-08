@@ -1,4 +1,4 @@
-import { Repository } from "./Repository";
+import { Repository } from "./base-model";
 
 export interface UserWorkingRange extends Repository{
   userId: number ;

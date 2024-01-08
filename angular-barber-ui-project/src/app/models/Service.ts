@@ -1,4 +1,4 @@
-import { TimeStampRepository } from "./TimeStampRepository";
+import { TimeStampRepository } from "./base-stamp-model";
 
 export interface Service extends TimeStampRepository{
   name: string;

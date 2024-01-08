@@ -1,4 +1,4 @@
-import { TimeStampRepository } from "./TimeStampRepository";
+import { TimeStampRepository } from "./base-stamp-model";
 
 export interface Product extends TimeStampRepository{
   categoryId:number;
