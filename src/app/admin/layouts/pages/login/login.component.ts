@@ -37,12 +37,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     const loginDto: UserForLoginDto = Object.assign({}, this.loginForm.value);
 
     this.authService.login(loginDto).subscribe(result => {
-      alert(result.data);
+      localStorage.setItem("token", result.data)
       this.router.navigateByUrl('/admin/home');
     });
   }
-
-  error(error: any) {
+error(error: any) {
     console.log(error);
   }
 }
