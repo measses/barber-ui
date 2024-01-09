@@ -1,7 +1,7 @@
-import { Repository } from "./base-model";
+import { BaseModel } from "./base/base-model";
 
-export interface Leave extends Repository{
-  userId:number;
-  startDate?:string;
-  endDate?:string;
+export interface Leave extends BaseModel<number>{
+    userId:number;
+    startDate:string|null;
+    endDate:string|null;
 }

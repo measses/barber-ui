@@ -1,7 +1,5 @@
-import { TimeStampRepository } from "./base-stamp-model";
-
-export interface Service extends TimeStampRepository{
-  name: string;
-  duration?: number;
-  price?: number;
+export interface Service{
+  name:string|null;
+  duration:number|null;
+  price:number|null;
 }
