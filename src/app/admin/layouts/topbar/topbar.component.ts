@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class TopbarComponent {
   constructor(private authService:AuthService,private router:Router){}
   logout(){
+    this.authService.logout();
     this.router.navigateByUrl("/admin/login")
   }
   toggleSidebar(){

@@ -4,11 +4,10 @@ import { UserForLoginDto } from "../dtos/user-for-login-dto";
 import { Observable } from "rxjs";
 import { DataResponse } from "../models/responses";
 import { User } from "../models/user";
-import { environment } from "../environments/environments";
-
+import { environment } from "../environments/environment";
 @Injectable({providedIn:'root'})
 export class UserService{
-
+    
     constructor(private httpClient:HttpClient){}
 
     getAll():Observable<DataResponse<User[]>>{

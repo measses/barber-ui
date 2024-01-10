@@ -3,14 +3,15 @@ import { inject } from "@angular/core";
 import { Observable, map, tap } from "rxjs";
 import { AuthService } from "../../services/auth.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
+import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 import { Response } from "../../models/responses";
-
+import { environment } from "../../environments/environment";
 
 export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next:
     HttpHandlerFn):Observable<HttpEvent<any>> => {
        let authService = inject(AuthService);
-       let userToken = localStorage.getItem("token")??'';
+       let userToken = localStorage.getItem("token")??''; 
        let modifiedReq = req.clone({
          headers: req.headers.set('Authorization', `Bearer ${userToken}`),
        });
