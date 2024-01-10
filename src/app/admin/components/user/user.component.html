@@ -1,16 +1,55 @@
-<!-- start page title -->
+ <button type="button" routerLink="/admin/userAdd" class="btn btn-success waves-effect waves-light mb-3"><i
+  class="mdi mdi-plus me-1"></i> Add users</button>
 <div class="row">
-    <div class="col-12">
-        <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">User Page</h4>
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Utility</a></li>
-                    <li class="breadcrumb-item active">User Page</li>
-                </ol>
-            </div>
-            
+  <div class="col-12">
+    <div class="card">
+
+      <div class="card-body">
+        <h4 class="card-title">User List</h4>
+        <div class="table-responsive">
+          <table class="table table-editable table-nowrap align-middle table-edits">
+              <thead>
+                                <tr class="bg-transparent">
+                                    <th style="width: 20px;">
+                                        <div class="form-check text-center">
+                                            <input type="checkbox" class="form-check-input" id="customercheck">
+                                            <label class="form-check-label" for="customercheck"></label>
+                                        </div>
+                                    </th>
+                                    <th style="width: 120px;">User ID</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Join Date</th>
+                                    <th style="width: 120px;">Action</th>
+                                </tr>
+                            </thead>
+            <tbody>
+
+              <tr *ngFor="let user of users">
+                  <td>
+                      <div class="form-check text-center">
+                          <input type="checkbox" class="form-check-input" id="customercheck1">
+                          <label class="form-check-label" for="customercheck1"></label>
+                      </div>
+                  </td>
+
+                  <td><a href="javascript: void(0);" class="text-dark fw-bold">{{user.id}}</a> </td>
+                  <td>
+                      <img src="../../../../assets/admin/images/users/avatar-2.jpg" alt=""
+                          class="avatar-xs rounded-circle me-2">
+                      <span>{{user.firstName + " " + user.lastName}}</span>
+                  </td>
+                  <td>{{user.email}}</td>
+
+                  <td>
+                      {{user.createdAt}}
+                  </td>
+
+              </tr>
+          </tbody>
+          </table>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-<!-- end page title -->

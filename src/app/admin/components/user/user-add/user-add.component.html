@@ -1,1 +1,62 @@
-<p>user-add works!</p>
+<div class="row">
+  <div class="col-xl-6">
+      <div class="card">
+          <div class="card-body">
+              <h4 class="card-title">Create User</h4>
+              <p class="card-title-desc">Add to User</p>
+              <form class="needs-validation" [formGroup]="addUserForm" (ngSubmit)="addUser()">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label class="form-label" for="firstName">First name</label>
+                              <input type="text" class="form-control" formControlName="firstName" id="validationCustom01" placeholder="First name"  required>
+
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label class="form-label" for="lastName">Last name</label>
+                              <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last name"  required>
+
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="mb-3">
+                              <label class="form-label" for="Email">Email</label>
+                              <input type="email" class="form-control"formControlName="email"  id="Email" placeholder="E-Mail" required>
+                              <div class="invalid-feedback">
+                                  E-Mail
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input type="password" class="form-control"formControlName="password"  id="Email" placeholder="Password" required>
+                            <div class="invalid-feedback">
+                                E-Mail
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="mb-3">
+                              <label class="form-label" for="ImageUrl">Image URL</label>
+                              <input type="text" class="form-control" id="ImageUrl" formControlName="imageUrl" placeholder="Image URL" required>
+                              <div class="invalid-feedback">
+                                  Please provide a valid Image URL.
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <button class="btn btn-primary" type="submit">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
