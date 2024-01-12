@@ -1,62 +1,41 @@
-<div class="row">
-  <div class="col-xl-6">
-      <div class="card">
-          <div class="card-body">
-              <h4 class="card-title">Create User</h4>
-              <p class="card-title-desc">Add to User</p>
-              <form class="needs-validation" [formGroup]="addUserForm" (ngSubmit)="addUser()">
-                  <div class="row">
-                      <div class="col-md-6">
-                          <div class="mb-3">
-                              <label class="form-label" for="firstName">First name</label>
-                              <input type="text" class="form-control" formControlName="firstName" id="validationCustom01" placeholder="First name"  required>
 
-                          </div>
-                      </div>
-                      <div class="col-md-6">
-                          <div class="mb-3">
-                              <label class="form-label" for="lastName">Last name</label>
-                              <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last name"  required>
-
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="mb-3">
-                              <label class="form-label" for="Email">Email</label>
-                              <input type="email" class="form-control"formControlName="email"  id="Email" placeholder="E-Mail" required>
-                              <div class="invalid-feedback">
-                                  E-Mail
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                        <div class="mb-3">
-                            <label class="form-label" for="password">Password</label>
-                            <input type="password" class="form-control"formControlName="password"  id="Email" placeholder="Password" required>
-                            <div class="invalid-feedback">
-                                E-Mail
-                            </div>
-                        </div>
-                    </div>
+<!-- Create Modal example -->
+<div class="modal fade create-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="card shadow-none border-0 p-3 pb-0">
+                <div class="card-title">
+                    <h4>Create User</h4>
                 </div>
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="mb-3">
-                              <label class="form-label" for="ImageUrl">Image URL</label>
-                              <input type="text" class="form-control" id="ImageUrl" formControlName="imageUrl" placeholder="Image URL" required>
-                              <div class="invalid-feedback">
-                                  Please provide a valid Image URL.
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <button class="btn btn-primary" type="submit">Submit</button>
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
+                <div class="card-body" *ngIf="createForm">
+                    <div class="mb-3">
+                        <label class="form-label" for="image-url-input">Image Url</label>
+                        <input type="file" class="form-control" accept="image/*" (change)="onFileChange($event)" id="image-url-input">
+                    </div>
+                    <form  [formGroup]="createForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label class="form-label" for="first-name-input">First Name</label>
+                            <input type="text" class="form-control" formControlName="firstName" id="first-name-input">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="last-name-input">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastName" id="last-name-input">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="email-input">Email</label>
+                            <input type="text" class="form-control" formControlName="email" id="email-input">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password-input">Password</label>
+                            <input type="text" class="form-control" formControlName="password" id="password-input">
+                        </div>
+                        <div class="">
+                            <button class="btn btn-warning d-block ms-auto">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

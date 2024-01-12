@@ -6,7 +6,7 @@ import { Leave } from "./leave";
 import { UserWorkingRange } from "./user-working-range";
 
 export interface User extends BaseTimeStampModel<number>{
-    imageUrl:string;
+    imageUrl:string|null;
     firstName:string;
     lastName:string;
     email:string;
@@ -14,7 +14,7 @@ export interface User extends BaseTimeStampModel<number>{
 export interface UserWithClaim extends User{
     claims:Claim[]
 }
-export interface UserWithWorkingRange extends User{
+export interface UserWithWorkingRanges extends User{
     workingRanges:UserWorkingRange[]
 }
 export interface UserWithLeave extends User{
@@ -37,4 +37,8 @@ export interface UserWithAppointmentAndLeaveAndWorkingRange extends User{
 export interface UserWithWorkingRangeAndClaim extends User{
     workingRanges:UserWorkingRange[]
     claims:Claim[]
+}
+export interface UserSetClaim{
+    userId:number;
+    claimId:number;
 }

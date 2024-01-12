@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-barber-ui-project": {
+    "barber": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-barber-ui-project",
+            "outputPath": "dist/barber",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -30,16 +30,19 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/admin/js/jquery/jquery.min.js",
+              "node_modules/jquery/dist/jquery.js",
               "src/assets/admin/js/bootstrap/js/bootstrap.bundle.min.js",
               "src/assets/admin/js/metismenu/metisMenu.min.js",
               "src/assets/admin/js/simplebar/simplebar.min.js",
               "src/assets/admin/js/node-waves/waves.min.js",
               "src/assets/admin/js/waypoints/lib/jquery.waypoints.min.js",
               "src/assets/admin/js/jquery.counterup/jquery.counterup.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
               "src/assets/admin/js/app.js"
             ],
             "server": "src/main.server.ts",
@@ -76,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-barber-ui-project:build:production"
+              "buildTarget": "barber:build:production"
             },
             "development": {
-              "buildTarget": "angular-barber-ui-project:build:development"
+              "buildTarget": "barber:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-barber-ui-project:build"
+            "buildTarget": "barber:build"
           }
         },
         "test": {
