@@ -29,7 +29,7 @@ export class AppointmentAddComponent {
       email:['',Validators.required],
       startDate:['',Validators.required],
       endDate:['',Validators.required],
-      completed:['',Validators.required],
+      completed: ['', Validators.required],
 
 
     })

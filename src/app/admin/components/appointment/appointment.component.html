@@ -42,10 +42,11 @@
                                       <td>{{ appointment.isCompleted ? 'Yes' : 'No' }}</td>
 
 
-                                      <!-- <td>
+                                      <td>
                                           <button class="btn btn-icon"
-                                              data-bs-toggle="modal" (click)="showEditModal(service)" data-bs-target=".edit-modal"
+                                              data-bs-toggle="modal" (click)="showEditModal(appointment)" data-bs-target=".edit-modal"
                                           ><span>Edit</span></button>
+                                           <!--
                                           <button class="btn btn-icon" (click)="deleteServiceById(service.id)"><span>Delete</span></button>
                                       </td> -->
                                   </tr>
@@ -62,4 +63,4 @@
 
 <app-appointment-add (onLoad)="getList()"></app-appointment-add>
 
-<!-- <app-service-update (onLoad)="getList()"></app-service-update> -->
+<app-appointment-update (onLoad)="getList()"></app-appointment-update>

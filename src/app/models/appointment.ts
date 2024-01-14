@@ -9,7 +9,7 @@ export interface Appointment extends BaseTimeStampModel<number>{
     startDate:string|null;
     endDate:string|null;
     isCompleted:boolean|null;
-} 
+}
 
 export interface AppointmentService extends Appointment{
     services:Service[];
