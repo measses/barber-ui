@@ -16,6 +16,7 @@ import { CategoryComponent } from './admin/components/category/category.componen
 import { ProductComponent } from './admin/components/product/product.component';
 import { AppointmentComponent } from './admin/components/appointment/appointment.component';
 import { LeaveComponent } from './admin/components/leave/leave.component';
+import { OrderComponent } from './admin/components/order/order.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent},
@@ -36,6 +37,8 @@ export const routes: Routes = [
         {path:'products',component:ProductComponent},
         {path:'appointments',component:AppointmentComponent},
         {path:'leaves',component:LeaveComponent},
+        {path:'orders',component:OrderComponent},
+
 
     ]}
 ];
