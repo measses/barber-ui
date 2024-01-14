@@ -22,6 +22,7 @@
                               <thead>
                                   <tr>
                                       <th>Id</th>
+                                      <th>User ID</th>
                                       <th>Full Name</th>
                                       <th>Phone Number</th>
                                       <th>E-Mail</th>
@@ -34,6 +35,7 @@
                               <tbody>
                                   <tr *ngFor="let appointment of appointments">
                                       <td>{{ appointment.id }}</td>
+                                      <td>{{appointment.userId}}</td>
                                       <td>{{ appointment.fullName }}</td>
                                       <td>{{ appointment.phoneNumber }}</td>
                                       <td>{{ appointment.email }}</td>

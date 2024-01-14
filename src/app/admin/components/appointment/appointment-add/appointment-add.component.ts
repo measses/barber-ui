@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -6,6 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Appointment } from '../../../../models/appointment';
 import { AppointmentService } from '../../../../services/appointment.service';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../../../services/user.service';
+import { User } from '../../../../models/user';
 
 @Component({
   selector: 'app-appointment-add',
@@ -14,16 +16,30 @@ import { CommonModule } from '@angular/common';
   templateUrl: './appointment-add.component.html',
   styleUrl: './appointment-add.component.scss'
 })
-export class AppointmentAddComponent {
+export class AppointmentAddComponent implements OnInit {
   createForm!:FormGroup
   @Output() onLoad:EventEmitter<unknown>=new EventEmitter();
   constructor(
     private formBuilder:FormBuilder,
     private toastrService:ToastrService,
-    private appointmentService:AppointmentService){}
+    private appointmentService:AppointmentService,
+    private userService:UserService
+    ){}
+
+    ngOnInit() {
+      this.getUserList();
+    }
+    users:User[]=[]
+
+    getUserList(){
+      this.userService.getAll().subscribe(result=>{
+        this.users=result.data
+      })
+    }
 
   createCreateForm(){
     this.createForm=this.formBuilder.group({
+      userId:['', Validators.required],
       fullName:['',Validators.required],
       phoneNumber:['',Validators.required],
       email:['',Validators.required],

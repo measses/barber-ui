@@ -22,6 +22,12 @@
                         <label class="form-label" for="duration-input">E-Mail</label>
                         <input type="email" class="form-control" formControlName="email" id="duration-input">
                     </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="user-select">User</label>
+                      <select id="user-select" class="form-control" formControlName="userId">
+                          <option *ngFor="let user of users" [value]="user.id">{{user.firstName }}</option>
+                      </select>
+                  </div>
                   <div class="mb-3">
                     <label class="form-label" for="start-date-input">Start Date</label>
                     <input type="datetime-local" class="form-control" formControlName="startDate" id="start-date-input">
