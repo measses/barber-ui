@@ -1,20 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Appointment } from '../../../models/appointment';
 import { AppointmentService } from '../../../services/appointment.service';
+import { AppointmentAddComponent } from './appointment-add/appointment-add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-appointment',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule,AppointmentAddComponent],
   templateUrl: './appointment.component.html',
   styleUrl: './appointment.component.scss'
 })
 export class AppointmentComponent {
   appointments:Appointment[]=[]
 
-  // @ViewChild(CategoryAddComponent,{static:true}) addCategoryComponent !: CategoryAddComponent;
+  @ViewChild(AppointmentAddComponent,{static:true}) addAppointmentComponent !: AppointmentAddComponent;
   // @ViewChild(CategoryUpdateComponent,{static:true}) updateCategoryComponent !: CategoryUpdateComponent;
   constructor(private appointmentService:AppointmentService){}
   ngOnInit(): void {
@@ -28,10 +30,10 @@ export class AppointmentComponent {
     });
   }
 
-  // showAddModal(){
-  //   this.addCategoryComponent.createCreateForm();
-  // }
-  // showEditModal(category:Category|null){
+  showAddModal(){
+    this.addAppointmentComponent.createCreateForm();
+  }
+  // showEditModal(category:Appointment|null){
   //   if(category==null) return;
   //   this.updateCategoryComponent.createUpdateForm(category);
   // }
