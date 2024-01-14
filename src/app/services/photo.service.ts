@@ -1,11 +1,14 @@
-import { Injectable } from '@angular/core';
-import { BaseService } from './base/base.service';
-import { Order } from '../models/order';
-import { Photo } from '../models/photo';
+import { Injectable } from "@angular/core";
+import { BaseService } from "./base/base.service";
+import { Photo } from "../models/photo";
+import { ImageCreateDto } from "../dtos/image-create-dto";
+import { Observable } from "rxjs";
+import { environment } from "../environments/environment";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class PhotoService extends BaseService<Photo> {
+@Injectable({providedIn:'root'})
+export class PhotoService extends BaseService<Photo>{
   override path: string='photos';
+  override create(entity: ImageCreateDto): Observable<Response> {
+    return this.getHttpClient.post<Response>(environment.getApiUrl("/photos/create"),entity)
+  }
 }
