@@ -6,5 +6,8 @@ import { Leave } from '../models/leave';
   providedIn: 'root'
 })
 export class LeaveService extends BaseService<Leave> {
+  UserWithLeave(userId: number) {
+    throw new Error('Method not implemented.');
+  }
   override path: string='leaves';
 }

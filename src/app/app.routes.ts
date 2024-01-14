@@ -15,9 +15,9 @@ import { CategoryService } from './services/category.service';
 import { CategoryComponent } from './admin/components/category/category.component';
 import { ProductComponent } from './admin/components/product/product.component';
 import { AppointmentComponent } from './admin/components/appointment/appointment.component';
-import { LeaveComponent } from './admin/components/leave/leave.component';
 import { OrderComponent } from './admin/components/order/order.component';
 import { PhotoComponent } from './admin/components/photo/photo.component';
+import { LeaveComponent } from './admin/components/user/leave/leave.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent},
@@ -32,12 +32,12 @@ export const routes: Routes = [
             {path:'',component:UserComponent},
             {path:'set-credentials/:userId',component:UserSetCredentialComponent},
             {path:'list-working-ranges/:userId',component:UserListWorkingRangeComponent},
+            {path:'leaves/:userId',component:LeaveComponent},
         ]},
         {path:'services',component:ServiceComponent},
         {path:'categories',component:CategoryComponent},
         {path:'products',component:ProductComponent},
         {path:'appointments',component:AppointmentComponent},
-        {path:'leaves',component:LeaveComponent},
         {path:'orders',component:OrderComponent},
         {path:'photos',component:PhotoComponent},
 

@@ -9,7 +9,7 @@
                     <li class="breadcrumb-item active">User Page</li>
                 </ol>
             </div>
-            
+
         </div>
         <div class="row">
             <div class="col-12">
@@ -46,6 +46,8 @@
                                             <button class="btn btn-icon" (click)="deleteUserById(user.id)"><span>Delete</span></button>
                                             <button class="btn btn-icon" [routerLink]="'/admin/users/set-credentials/'+user.id"><span>Set Credentials</span></button>
                                             <button class="btn btn-icon" [routerLink]="'/admin/users/list-working-ranges/'+user.id"><span>Set Working Ranges</span></button>
+                                            <button class="btn btn-icon" [routerLink]="'/admin/users/leaves/'+user.id"><span>Leaves</span></button>
+
                                         </td>
                                     </tr>
                                 </tbody>

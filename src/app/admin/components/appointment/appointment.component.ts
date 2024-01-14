@@ -38,10 +38,10 @@ export class AppointmentComponent {
     if(appointment==null) return;
     this.updateAppointmentComponent.createUpdateForm(appointment);
   }
-  // deleteCategoryById(id:number){
-  //   this.categoryService.deleteById(id).subscribe(result=>{
-  //     this.getList();
-  //   })
-  // }
+  deleteAppointmentById(id:number){
+    this.appointmentService.deleteById(id).subscribe(result=>{
+      this.getList();
+    })
+  }
 }
 
