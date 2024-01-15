@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { DataResponse } from "../../models/responses";
 import { environment } from "../../environments/environment";
-
 @Injectable({providedIn:'root'})
 export abstract class BaseService<T>{
     path:string=''
@@ -28,4 +27,8 @@ export abstract class BaseService<T>{
     deleteById(userId:number):Observable<Response>{
         return this.httpClient.delete<Response>(environment.getApiUrl(`/${this.path}/delete-by-id/`+userId));
     }
+    getEntityWithCustomFunc<T>(customPath: string, id: number): Observable<DataResponse<T>> {
+      return this.httpClient.get<DataResponse<T>>(environment.getApiUrl(`/${this.path}/${customPath}/${id}`));
+  }
+
 }

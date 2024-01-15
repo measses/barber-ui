@@ -6,6 +6,8 @@ import { AppointmentService } from '../../../services/appointment.service';
 import { AppointmentAddComponent } from './appointment-add/appointment-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppointmentUpdateComponent } from './appointment-update/appointment-update.component';
+import { User } from '../../../models/user';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-appointment',
@@ -15,22 +17,31 @@ import { AppointmentUpdateComponent } from './appointment-update/appointment-upd
   styleUrl: './appointment.component.scss'
 })
 export class AppointmentComponent {
-  appointments:Appointment[]=[]
+  appointments:Appointment[]=[];
+  selectedAppointment!:Appointment;
+  users:User[]=[]
+  @ViewChild(AppointmentAddComponent,{static:true}) addAppointmentComponent!: AppointmentAddComponent
+  @ViewChild(AppointmentUpdateComponent,{static:true}) updateAppointmentComponent!:AppointmentUpdateComponent
+  constructor(private appointmentService:AppointmentService,private userService:UserService){}
 
-  @ViewChild(AppointmentAddComponent,{static:true}) addAppointmentComponent !: AppointmentAddComponent;
-  @ViewChild(AppointmentUpdateComponent,{static:true}) updateAppointmentComponent !: AppointmentUpdateComponent;
-  constructor(private appointmentService:AppointmentService){}
+
   ngOnInit(): void {
     this.getList();
+    this.getUserList();
   }
-
-
   getList(){
-    this.appointmentService.getAll().subscribe(result=>{
-      this.appointments=result.data;
+    this.appointmentService.getAll().subscribe(res=>{
+      this.appointments=res.data;
     });
   }
-
+  findUserById(userId: number) {
+    return this.users.find(user => user.id === userId);
+  }
+  getUserList(){
+    this.userService.getAll().subscribe(res=>{
+      this.users=res.data
+    })
+  }
   showAddModal(){
     this.addAppointmentComponent.createCreateForm();
   }
@@ -39,7 +50,7 @@ export class AppointmentComponent {
     this.updateAppointmentComponent.createUpdateForm(appointment);
   }
   deleteAppointmentById(id:number){
-    this.appointmentService.deleteById(id).subscribe(result=>{
+    this.appointmentService.deleteById(id).subscribe(res=>{
       this.getList();
     })
   }

@@ -1,19 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { OrderService } from '../../../services/order.service';
 import { Order } from '../../../models/order';
+import { OrderAddComponent } from './order-add/order-add.component';
+import { Product } from '../../../models/product';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, OrderAddComponent],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })
 export class OrderComponent {
+  createForm!:FormGroup
   orders:Order[]=[]
+  @Input()   selectedProducts: Product[] = [];
 
-  // @ViewChild(CategoryAddComponent,{static:true}) addCategoryComponent !: CategoryAddComponent;
+@ViewChild(OrderAddComponent,{static:true}) addOrderComponent !: OrderAddComponent;
   // @ViewChild(CategoryUpdateComponent,{static:true}) updateCategoryComponent !: CategoryUpdateComponent;
   constructor(private orderService:OrderService){}
   ngOnInit(): void {
@@ -28,7 +33,7 @@ export class OrderComponent {
   }
 
   // showAddModal(){
-  //   this.addCategoryComponent.createCreateForm();
+  //   this.addOrderComponent.createCreateForm();
   // }
   // showEditModal(category:Category|null){
   //   if(category==null) return;
